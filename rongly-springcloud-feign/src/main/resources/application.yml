@@ -1,0 +1,33 @@
+server:
+  port: 8005
+eureka:
+  client:
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka9000.com:9000/eureka/,http://eureka9001.com:9001/eureka/,http://eureka9002.com:9002/eureka/
+spring:
+  application:
+    name: rongly-feign-demo
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 9000
+  threadpool:
+    default:
+      coreSize: 100
+ribbon:
+  MaxAutoRetries: 0 # 对当前实例的重试次数
+  MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
+  OkToRetryOnAllOperations: false #重试操作
+  ReadTimeout: 30000 # 请求处理的超时时间
+  ConnectTimeout: 5000 # 请求连接超时时间
+  okhttp:
+    enabled: true
+
+
+feign:
+  hystrix:
+    enabled: true

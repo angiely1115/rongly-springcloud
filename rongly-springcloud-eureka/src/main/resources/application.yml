@@ -1,0 +1,15 @@
+server:
+  port: 8888
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false #表示不往eureka上注册
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  application:
+    name: rongly-eureka
+#配置机器
+#--server.port=9001 --eureka.instance.hostname=eureka9001.com --eureka.client.service-url.defaultZone=http://eureka9000.com:9000/eureka,http://eureka9002.com:9002/eureka

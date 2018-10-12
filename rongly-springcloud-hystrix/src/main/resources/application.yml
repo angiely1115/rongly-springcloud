@@ -1,0 +1,16 @@
+server:
+  port: 7001
+spring:
+  application:
+    name: rongly-hystrix-demo
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://eureka9000.com:9000/eureka/,http://eureka9001.com:9001/eureka/,http://eureka9002.com:9002/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

@@ -1,0 +1,14 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: rongly-dept
+  profiles:
+    active: test
+  cloud:
+    config:
+      fail-fast: true
+      uri: http://config3344.com:3344
+rong.love.name: 赵雅芝
+#优先级最低
+
