@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @Author: lvrongzhuan
  * @Description:Hystrix 熔断处理控制器
@@ -23,15 +25,31 @@ public class HystrixController {
 
     @GetMapping("demo1")
     @HystrixCommand(fallbackMethod="hystrix01_fallback")
-    public String hystrix01(String name){
+    public String hystrix01(String name) throws InterruptedException {
         if(StringUtils.isBlank(name)){
             throw new RuntimeException("参数错误");
         }
+        TimeUnit.SECONDS.sleep(1);
          name = "love_".concat(name);
          return name;
     }
 
     public String hystrix01_fallback(String name){
         return "异常啦 哈哈哈";
+    }
+
+    /**
+     * 没有容错处理
+     * @param name
+     * @return
+     */
+    @GetMapping("demo2")
+    public String hystrix02(String name) throws InterruptedException {
+        if(StringUtils.isBlank(name)){
+            throw new RuntimeException("参数错误");
+        }
+        TimeUnit.SECONDS.sleep(3);
+        name = "love_".concat(name);
+        return name;
     }
 }

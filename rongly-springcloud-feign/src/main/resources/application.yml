@@ -14,20 +14,34 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 9000
+            timeoutInMilliseconds: 15000
   threadpool:
     default:
-      coreSize: 100
+      coreSize: 20
+#全局配置
 ribbon:
   MaxAutoRetries: 0 # 对当前实例的重试次数
   MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
   OkToRetryOnAllOperations: false #重试操作
-  ReadTimeout: 30000 # 请求处理的超时时间
+  ReadTimeout: 3000 # 请求处理的超时时间
   ConnectTimeout: 5000 # 请求连接超时时间
   okhttp:
-    enabled: true
-
-
+      enabled: true
+#单个应用服务配置
+rongly-hystrix-demo:
+  ribbon:
+    MaxAutoRetries: 0 # 对当前实例的重试次数
+    MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
+    OkToRetryOnAllOperations: false #重试操作
+    ReadTimeout: 5000 # 请求处理的超时时间
+    ConnectTimeout: 5000 # 请求连接超时时间
+spring_base_url: localhost:8080
 feign:
   hystrix:
     enabled: true
+  okhttp:
+    enabled: true #开启走okhttp接口
+rongly:
+  okhttp:
+    client:
+      level: body

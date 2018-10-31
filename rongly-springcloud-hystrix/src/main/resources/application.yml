@@ -14,3 +14,16 @@ management:
     web:
       exposure:
         include: hystrix.stream
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
+#ribbon:
+#  MaxAutoRetries: 0 # 对当前实例的重试次数
+#  MaxAutoRetriesNextServer: 1 # 切换实例的重试次数
+#  OkToRetryOnAllOperations: false #重试操作
+#  ReadTimeout: 3000 # 请求处理的超时时间 配置的被调用方才生效
+#  ConnectTimeout: 5000 # 请求连接超时时间
