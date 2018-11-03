@@ -7,8 +7,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 //import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
-//@EnableDiscoveryClient
-//@EnableEurekaClient
+@EnableDiscoveryClient
+@EnableEurekaClient
 //@EnableEurekaServer
 public class RonglySpringcloudClientDeptApplication {
 
