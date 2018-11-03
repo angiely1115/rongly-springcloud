@@ -11,7 +11,42 @@ spring:
     name: rongly-zuul-demo
 zuul:
   routes:
-    mydept.serviceId: rongly-dept
-    mydept.path: /rongly/dept/**
+    mydept:
+      serviceId: rongly-dept
+      path: /rongly/dept/**
+      sensitiveHeaders: Cookie,Set-Cookie,Authorization # 敏感的头部 切断与下层服务之间的交互
   ignored-services: rongly-dept #忽略用注册到eureka上的服务名称访问 "*" 表示忽略所有
   prefix: /rongly2 #配置访问统一的前缀 /不能少也不能与path路径前面相同了
+  #禁用指定的filter
+  SendErrorFilter.error.disable: true
+  #使用线程隔离策略
+  ribbon-isolation-strategy: thread
+  #开启饥饿加载
+  ribbon:
+    eager-load:
+      enabled: true
+
+#  ratelimit:
+#    #按粒度拆分的临时变量key
+#    key-prefix: springcloud-book
+#    enabled: true
+#    behind-proxy: true
+#    repository: IN_MEMORY
+#    default-policy-list:
+#     limit: 2
+#     quota: 1
+#     refresh-interval: 3
+#     type:
+#      - user
+#      - origin
+#      - url
+
+
+
+   # repository: IN_EMMEORY #默认就是这个配置
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: routes,filters
