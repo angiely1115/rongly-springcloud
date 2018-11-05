@@ -33,7 +33,7 @@ public class MyPostFilter extends ZuulFilter{
         System.out.println("这是post filter");
         RequestContext requestContext = RequestContext.getCurrentContext();
         String responseBody =  requestContext.getResponseBody();
-//        requestContext.getResponse().setCharacterEncoding("UTF-8");
+        requestContext.getResponse().setCharacterEncoding("UTF-8");
         if(StringUtils.isNotBlank(responseBody)){
 
         }

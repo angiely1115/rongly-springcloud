@@ -25,7 +25,13 @@ zuul:
   ribbon:
     eager-load:
       enabled: true
-
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
 #  ratelimit:
 #    #按粒度拆分的临时变量key
 #    key-prefix: springcloud-book
@@ -43,7 +49,8 @@ zuul:
 
 
 
-   # repository: IN_EMMEORY #默认就是这个配置
+
+# repository: IN_EMMEORY #默认就是这个配置
 
 management:
   endpoints:

@@ -11,3 +11,19 @@ spring:
       uri: http://config3344.com:3344
 rong.love.name: 赵雅芝
 #优先级最低
+management:
+  endpoint:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health     # 健康检查
+          - info       # 项目信息
+          - env        # 环境变量
+          - metrics    # 项目度量
+          - refresh    # 刷新配置
+          - loggers    # 日志级别
+          - metrics    # 度量
+      cors:
+        allowed-methods: '*'
+

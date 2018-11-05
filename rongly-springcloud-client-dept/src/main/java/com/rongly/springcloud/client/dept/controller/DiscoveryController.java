@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.eureka.EurekaClientConfigBean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,13 +26,20 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("discovery")
+@RefreshScope //手动刷新配置
 @Slf4j
 public class DiscoveryController {
     @Value("${rongly.love.name}")
     private String ronglyLove1;
+    /**
+     * 服务发现客服端
+     */
     @Autowired
     private DiscoveryClient discoveryClient;
 
+    /**
+     * eureka 客户端配置信息
+     */
     @Autowired
     private EurekaClientConfigBean eurekaClientConfigBean;
 

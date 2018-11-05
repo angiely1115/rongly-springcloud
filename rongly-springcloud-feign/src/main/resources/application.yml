@@ -25,9 +25,7 @@ ribbon:
   OkToRetryOnAllOperations: false #重试操作
   ReadTimeout: 3000 # 请求处理的超时时间
   ConnectTimeout: 5000 # 请求连接超时时间
-  okhttp:
-      enabled: true
-#单个应用服务配置
+#单个应用服务配置 应用名称
 rongly-hystrix-demo:
   ribbon:
     MaxAutoRetries: 0 # 对当前实例的重试次数
@@ -39,6 +37,8 @@ spring_base_url: localhost:8080
 feign:
   hystrix:
     enabled: true
+  httpclient:
+    enabled: false
   okhttp:
     enabled: true #开启走okhttp接口
 rongly:
