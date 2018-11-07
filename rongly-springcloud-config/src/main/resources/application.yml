@@ -9,3 +9,17 @@ spring:
         git:
           uri: https://github.com/angiely1115/springcloud-config.git
           search-paths: '{application}'
+  profiles:
+    active: test
+#将分布式配置中心也注册到eureka上
+eureka:
+  client:
+    registry-fetch-interval-seconds: 20
+    service-url:
+      defaultZone: http://eureka9000.com:9000/eureka/,http://eureka9001.com:9001/eureka/,http://eureka9002.com:9002/eureka/
+    register-with-eureka: true
+  instance:
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
+
