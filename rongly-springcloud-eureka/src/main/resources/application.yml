@@ -8,6 +8,10 @@ eureka:
     fetch-registry: false #表示不往eureka上注册
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    #剔除过期服务的频率
+    eviction-interval-timer-in-ms: 10000
+    enable-self-preservation: true
 spring:
   application:
     name: rongly-eureka
