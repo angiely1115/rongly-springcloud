@@ -9,6 +9,13 @@ spring:
     config:
       fail-fast: true
       uri: http://config3344.com:3344
+      overrideNone: true
+      override-system-properties: false
+      allow-override: true
+      #使用eureka高可用模式 但是需要在本地配置连接eureka的配置 不然不可以
+#      discovery:
+#        enabled: true
+#        service-id: RONGLY-CONFIG
 rong.love.name: 赵雅芝
 #优先级最低
 management:
