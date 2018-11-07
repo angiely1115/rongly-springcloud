@@ -1,7 +1,6 @@
-package com.rongly.springcloud.feign.config.okhttp;
+package com.rongly.springcloud.zuul.config.okhttp;
 
 
-import com.sun.org.apache.regexp.internal.RE;
 import okhttp3.*;
 
 import java.io.IOException;

@@ -1,7 +1,7 @@
-package com.rongly.springcloud.feign.config.okhttp;
+package com.rongly.springcloud.zuul.config.okhttp;
 
-import feign.okhttp.OkHttpClient;
 import okhttp3.ConnectionPool;
+import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.cloud.openfeign.FeignAutoConfiguration;
+import org.springframework.cloud.netflix.zuul.ZuulProxyAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit;
         name = {
         "org.springframework.cloud.netflix.ribbon.okhttp.OkHttpRibbonConfiguration",
 })
-@AutoConfigureBefore(value = FeignAutoConfiguration.class)
+@AutoConfigureBefore(value = ZuulProxyAutoConfiguration.class)
 public class OkHttpConfig {
     @Autowired
     private OkhttpProperties okhttpProperties;

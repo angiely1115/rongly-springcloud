@@ -1,4 +1,4 @@
-package com.rongly.springcloud.feign.config.okhttp;
+package com.rongly.springcloud.zuul.config.okhttp;
 
 import lombok.Data;
 import okhttp3.logging.HttpLoggingInterceptor;

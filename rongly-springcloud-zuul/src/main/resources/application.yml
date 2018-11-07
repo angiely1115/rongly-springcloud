@@ -48,8 +48,16 @@ hystrix:
       coreSize: 20
       maximumSize: 50
       allowMaximumSizeToDivergeFromCoreSize: true
-
-
+#开启okhttp方式 不能都关了
+ribbon:
+  httpclient:
+    enabled: false
+  okhttp:
+    enabled: true
+rongly:
+  okhttp:
+   client:
+     level: body
 #  ratelimit:
 #    #按粒度拆分的临时变量key
 #    key-prefix: springcloud-book
