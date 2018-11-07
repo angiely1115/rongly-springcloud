@@ -20,11 +20,20 @@ zuul:
   #禁用指定的filter
   SendErrorFilter.error.disable: true
   #使用线程隔离策略
-  ribbon-isolation-strategy: thread
+  ribbon-isolation-strategy: THREAD
+  thread-pool:
+    #使用隔离的线程池
+    use-separate-thread-pools: true
+    #独立线程前缀
+    thread-pool-key-prefix: zuul-gateway
   #开启饥饿加载
   ribbon:
     eager-load:
       enabled: true
+  host:
+    #每个路由可用的最大连接数
+    max-per-route-connections: 50
+    max-total-connections: 300
 hystrix:
   command:
     default:
@@ -32,6 +41,15 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 15000
+            #线程隔离 默认
+          strategy: Thread
+  threadpool:
+    default:
+      coreSize: 20
+      maximumSize: 50
+      allowMaximumSizeToDivergeFromCoreSize: true
+
+
 #  ratelimit:
 #    #按粒度拆分的临时变量key
 #    key-prefix: springcloud-book

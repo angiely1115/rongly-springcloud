@@ -3,6 +3,7 @@ package com.rongly.springcloud.zuul.demo.filters;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -12,6 +13,7 @@ import org.apache.commons.lang.StringUtils;
  * @Version: 1.0
  * modified by:
  */
+@Slf4j
 public class MyPostFilter extends ZuulFilter{
     @Override
     public String filterType() {
@@ -30,7 +32,7 @@ public class MyPostFilter extends ZuulFilter{
 
     @Override
     public Object run() throws ZuulException {
-        System.out.println("这是post filter");
+        log.info("这是post filter");
         RequestContext requestContext = RequestContext.getCurrentContext();
         String responseBody =  requestContext.getResponseBody();
         requestContext.getResponse().setCharacterEncoding("UTF-8");
