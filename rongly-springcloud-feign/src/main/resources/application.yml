@@ -27,6 +27,11 @@ ribbon:
   OkToRetryOnAllOperations: false #重试操作
   ReadTimeout: 3000 # 请求处理的超时时间
   ConnectTimeout: 5000 # 请求连接超时时间
+  #饥饿加载服务
+  eager-load:
+    enabled: true
+    #不能配置*
+    clients: rongly-dept,rongly-hystrix-demo
 #单个应用服务配置 应用名称
 rongly-hystrix-demo:
   ribbon:
@@ -36,6 +41,11 @@ rongly-hystrix-demo:
     ReadTimeout: 5000 # 请求处理的超时时间
     ConnectTimeout: 5000 # 请求连接超时时间
 spring_base_url: localhost:8080
+#为单个服务设置负载路由规则
+rongly-dept:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
 feign:
   hystrix:
     enabled: true
@@ -53,3 +63,10 @@ rongly:
   okhttp:
     client:
       level: body
+management:
+  endpoints:
+    web:
+      exposure:
+        include: env
+
+
