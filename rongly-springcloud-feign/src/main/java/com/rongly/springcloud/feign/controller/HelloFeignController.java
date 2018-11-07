@@ -1,16 +1,20 @@
 package com.rongly.springcloud.feign.controller;
 
+import com.netflix.hystrix.strategy.concurrency.HystrixRequestContext;
 import com.rongly.springcloud.feign.feign.DeptFeign;
 import com.rongly.springcloud.feign.feign.HystrixDemoFeign;
 import com.rongly.springcloud.feign.feign.OtherServerDemoFeign;
+import com.rongly.springcloud.feign.service.ReqMergeDemoService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 /**
  * @Author: lvrongzhuan
@@ -19,6 +23,7 @@ import java.util.List;
  * @Version: 1.0
  * modified by:
  */
+@Slf4j
 @RestController
 @RequestMapping("hello/feign")
 public class HelloFeignController {
@@ -28,6 +33,8 @@ public class HelloFeignController {
     private HystrixDemoFeign hystrixDemoFeign;
     @Autowired
     private OtherServerDemoFeign otherServerDemoFeign;
+    @Autowired
+    private ReqMergeDemoService reqMergeDemoService;
 
     @GetMapping("discovery")
     public List<String> discovery(){
@@ -56,5 +63,47 @@ public class HelloFeignController {
     public Object other01(@PathVariable("id") Long id){
         return otherServerDemoFeign.queryUserEntity(id);
     }
+    @GetMapping("cacheHystrix01")
+    public String cacheHystrix(String name,String id){
+        hystrixDemoFeign.cacheHystrix01(name,id);
+        log.info("缓存请求结果");
+        return hystrixDemoFeign.cacheHystrix01(name,id);
+    }
 
+    /**
+     * 请求合并
+     * @param id
+     * @return
+     * @throws ExecutionException
+     * @throws InterruptedException
+     */
+    @GetMapping("reqMerge")
+    public String queryProductById(String id) throws ExecutionException, InterruptedException {
+//        HystrixRequestContext hystrixRequestContext = HystrixRequestContext.initializeContext();
+        Future<String> stringFuture = reqMergeDemoService.collapsing(id);
+        String str = stringFuture.get();
+        log.info("reqMerge 返回结果：{}",str);
+//        hystrixRequestContext.close();
+        return str;
+    }
+
+    /**
+     * 线程隔离请求
+     * @return
+     */
+    @GetMapping("threadIsolation")
+    public String  threadIsolation(){
+        log.info("Controller 请求线程:{}",Thread.currentThread().getName());
+        return reqMergeDemoService.threadIsolation();
+    }
+
+    /**
+     * 非线程隔离请求
+     * @return
+     */
+    @GetMapping("no_threadIsolation")
+    public String  noThreadIsolation(){
+        log.info("Controller 请求线程:{}",Thread.currentThread().getName());
+        return reqMergeDemoService.noThreadIsolation();
+    }
 }

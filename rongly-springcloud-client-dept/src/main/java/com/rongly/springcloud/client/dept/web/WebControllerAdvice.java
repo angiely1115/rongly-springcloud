@@ -6,6 +6,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +25,7 @@ import java.util.Map;
 public class WebControllerAdvice {
 
     @ExceptionHandler(value = Exception.class)
-//    @ResponseBody
+    @ResponseBody
     public String handleException(Exception e, HttpServletRequest request, HttpServletResponse response){
         e.printStackTrace();
         Map map = new HashMap();

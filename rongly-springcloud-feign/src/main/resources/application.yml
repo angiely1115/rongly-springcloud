@@ -18,6 +18,8 @@ hystrix:
   threadpool:
     default:
       coreSize: 20
+      maximumSize: 50
+      allowMaximumSizeToDivergeFromCoreSize: true
 #全局配置
 ribbon:
   MaxAutoRetries: 0 # 对当前实例的重试次数
@@ -41,6 +43,12 @@ feign:
     enabled: false
   okhttp:
     enabled: true #开启走okhttp接口
+    #压缩配置
+  compression:
+    request:
+     enabled: true
+    response:
+     enabled: true
 rongly:
   okhttp:
     client:

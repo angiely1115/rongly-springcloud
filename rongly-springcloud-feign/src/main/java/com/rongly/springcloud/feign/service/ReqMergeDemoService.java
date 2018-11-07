@@ -4,6 +4,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCollapser;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import com.rongly.springcloud.feign.feign.HystrixDemoFeign;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +18,13 @@ import java.util.concurrent.Future;
  * @Version: 1.0
  * modified by:
  */
+@Slf4j
 @Service
-public class DemoService {
+public class ReqMergeDemoService {
     @Autowired
     private HystrixDemoFeign hystrixDemoFeign;
-    @HystrixCollapser(batchMethod = "collapsingList",collapserProperties = {
-            @HystrixProperty(name = "timerDelayInMilliseconds",value = "1000")
+    @HystrixCollapser(batchMethod = "collapsingList",scope= com.netflix.hystrix.HystrixCollapser.Scope.GLOBAL,collapserProperties = {
+            @HystrixProperty(name = "timerDelayInMilliseconds",value = "3000")
     })
     public Future<String> collapsing(String id){
         return null;
@@ -30,5 +32,16 @@ public class DemoService {
     @HystrixCommand
     public List<String> collapsingList(List<String> ids){
       return   hystrixDemoFeign.mergeHystrix(ids);
+    }
+
+    @HystrixCommand
+    public String threadIsolation(){
+        log.info("当前线程：{}",Thread.currentThread().getName());
+        return "线程隔离请求，"+Thread.currentThread().getName();
+    }
+
+    public String noThreadIsolation(){
+        log.info("当前线程：{}",Thread.currentThread().getName());
+        return "不是线程隔离请求，"+Thread.currentThread().getName();
     }
 }

@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 /**
  * @Author: lvrongzhuan
  * @Description:
@@ -20,4 +22,8 @@ public interface HystrixDemoFeign {
 
     @GetMapping("/hello/hystrix/demo2")
     String hystrix02(@RequestParam(value = "name",required = false) String name);
+    @GetMapping("/hello/hystrix/cacheHystrix01")
+    String cacheHystrix01(@RequestParam(value = "name",required = false) String name,@RequestParam(value = "id",required = false) String id);
+    @GetMapping("/hello/hystrix/mergeHystrix")
+    List<String> mergeHystrix(@RequestParam(value = "ids",required = false) List<String> ids);
 }

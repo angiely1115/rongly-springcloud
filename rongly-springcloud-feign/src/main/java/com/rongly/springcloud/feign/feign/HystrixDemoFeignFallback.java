@@ -4,6 +4,8 @@ import com.rongly.springcloud.feign.config.ConstantConfig;
 import feign.hystrix.FallbackFactory;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * @Author: lvrongzhuan
  * @Description:
@@ -26,6 +28,18 @@ public class HystrixDemoFeignFallback implements FallbackFactory<HystrixDemoFeig
             public String hystrix02(String name) {
                 throwable.printStackTrace();
                 return "依赖服务没有容错处理,"+name;
+            }
+
+            @Override
+            public String cacheHystrix01(String name, String id) {
+                throwable.printStackTrace();
+                return "依赖服务没有容错处理,"+name;
+            }
+
+            @Override
+            public List<String> mergeHystrix(List<String> ids) {
+                throwable.printStackTrace();
+                return ids;
             }
         };
     }
