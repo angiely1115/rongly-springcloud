@@ -1,0 +1,162 @@
+spring:
+  application:
+    name: rongly-framework-demo
+  redis:
+    cluster:
+      nodes:
+      - 10.10.3.71:7000
+      - 10.10.3.71:7001
+      - 10.10.3.71:7002
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 3
+  cache:
+    redis:
+      time-to-live: 10000s #默认过期时间 不设置默认永不过期
+      use-key-prefix: false # 不使用cache-name:: 默认使用
+  kafka:
+    producer:
+      bootstrap-servers: 47.95.120.66:9092,47.95.120.66:9093,47.95.120.66:9094
+      # 指定消息key和消息体的编解码方式
+      key-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      properties:
+        interceptor.classes:
+          com.rongly.framework.demo.kafkaComsume.interceptor.MyKafkaInterceptor
+    consumer:
+      bootstrap-servers: 47.95.120.66:9092,47.95.120.66:9093,47.95.120.66:9094
+      group-id: ${spring.application.name}
+      enable-auto-commit: false
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+    listener:
+      ack-mode: manual_immediate
+rongly:
+  zookeeper:
+    enabled: true #是否使用zookeeper
+    connect-string: 47.95.120.66:2181,47.95.120.66:2182,47.95.120.66:2183
+    connection-timeout-ms: 10000
+  jdbc:
+    ronglyJdbc:
+      ds-master: #不支持多个写入
+        jdbcUrl: jdbc:mysql://10.10.11.167:3306/b2b_sale?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+        userName: test
+        password: test123
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcPoolConfig:
+          maximumPoolSize: 30
+          connectionInitSql: 'set names utf8mb4;'
+      ds-slave-1:
+        jdbcUrl: jdbc:mysql://10.10.11.167:3306/b2b_sale?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+        userName: test
+        password: test123
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcPoolConfig:
+          maximumPoolSize: 30
+          connectionInitSql: 'set names utf8mb4;'
+      ds-slave-2:
+        jdbcUrl: jdbc:mysql://10.10.8.205:3306/b2b_sale?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+        userName: caocao
+        password: caocao123
+        driverClassName: com.mysql.jdbc.Driver
+        jdbcPoolConfig:
+          maximumPoolSize: 30
+          connectionInitSql: 'set names utf8mb4;'
+#  sharding:
+#    jdbc:
+#   datasource:
+#    names: ds-master,ds-slave-1
+##主数据源
+#    ds-master:
+#     type: com.zaxxer.hikari.HikariDataSource
+#     driver-class-name: com.mysql.jdbc.Driver
+#     url: jdbc:mysql://10.10.11.167:3306/b2b_sale?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+#     username: test
+#     password: test123
+#     maxPoolSize: 20
+##从数据源 ds_slave_1
+#    ds-slave-1:
+#      type: com.zaxxer.hikari.HikariDataSource
+#      driver-class-name: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://10.10.11.167:3306/b2b_sale?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+#      username: test
+#      password: test123
+#      maxPoolSize: 20
+
+#从数据源 ds_slave_2
+#sharding.jdbc.datasource.ds_slave_2.type: com.alibaba.druid.pool.DruidDataSource
+#sharding.jdbc.datasource.ds_slave_2.driver-class-name: com.mysql.jdbc.Driver
+#sharding.jdbc.datasource.ds_slave_2.url: jdbc:mysql://localhost:3308/db1?characterEncoding=utf-8
+#sharding.jdbc.datasource.ds_slave_2.username: root
+#sharding.jdbc.datasource.ds_slave_2.password: 123456
+#sharding.jdbc.datasource.ds_slave_2.maxPoolSize: 20
+
+
+#    config:
+#      masterslave:
+#       load-balance-algorithm-type: round_robin
+#       name: dataSource
+#       master-data-source-name: ds_master
+#       slave-data-source-names: ds_slave_1
+#读写分离配置
+  sharding:
+    jdbc:
+      config:
+        masterslave:
+         load-balance-algorithm-type: round_robin
+         name: dataSource
+         master-data-source-name: ds-master
+         slave-data-source-names: ds-slave-1,ds-slave-2
+
+#mybatis.config-location: classpath:mapper/mybatis-config.xml
+#mybatis.mapper-locations: classpath:mapper/module/*.xml
+#mybatis.typeAliasesPackage: com.rongly.framework.demo.entity
+#mybatis:
+#  type-handlers-package: com.rongly.framework.demo.dao
+mybatis-plus:
+  # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
+  # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
+  mapper-locations: classpath:mapper/module/*/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.rongly.framework.demo.entity
+  global-config:
+    #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+    id-type: 0
+    #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+    field-strategy: 2
+    #驼峰下划线转换
+    db-column-underline: false
+    #mp2.3+ 全局表前缀 mp_
+    table-prefix:
+    #刷新mapper 调试神器
+    #refresh-mapper: true
+    #数据库大写下划线转换
+    #capital-mode: true
+    # Sequence序列接口实现类配置
+    key-generator: com.baomidou.mybatisplus.incrementer.OracleKeyGenerator
+    #逻辑删除配置（下面3个配置）
+    logic-delete-value: 0
+    logic-not-delete-value: 1
+    sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
+    #自定义填充策略接口实现
+    #meta-object-handler: com.baomidou.springboot.MyMetaObjectHandler
+  configuration:
+    #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+    map-underscore-to-camel-case: false
+    cache-enabled: false
+    #配置JdbcTypeForNull, oracle数据库必须配置
+    #jdbc-type-for-null: 'null'
+  type-handlers-package: com.rongly.framework.demo.dao
+logging:
+  level:
+    jdbc:
+      sqltiming: WARN #包含 SQL 语句实际的执行时间
+      audit: 'OFF' # 	除了 ResultSet 之外的所有JDBC调用信息，篇幅较长
+      resultset: 'OFF' #包含 ResultSet 的信息，输出篇幅较长
+      connection: 'info' #连接信息
+      sqlonly: 'info' #仅仅记录 SQL 语句，会将占位符替换为实际的参数
+log4jdbc.sqltiming:
+  warn.threshold: 300   # 300ms 会打印warn级别的日志
+  error.threshold: 500  # 500ms 会打印error级别的日志
