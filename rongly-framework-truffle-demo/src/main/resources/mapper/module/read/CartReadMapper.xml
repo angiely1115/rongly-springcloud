@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.rongly.framework.demo.dao.write.CartWriteDao">
+<mapper namespace="com.rongly.framework.demo.dao.write.CartReadDao">
     <insert id="addCart" useGeneratedKeys="true" keyProperty="id" keyColumn="id"
     parameterType="com.rongly.framework.demo.entity.CartEntity">
         INSERT INTO `cart` (productId,qty,buyUserId,createTime,sourceFrom)

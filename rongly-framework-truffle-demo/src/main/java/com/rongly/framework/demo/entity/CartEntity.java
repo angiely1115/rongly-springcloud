@@ -29,7 +29,7 @@ public class CartEntity implements Serializable {
     private Long buyUserId;
     @TableField
     private Integer sourceFrom;
-    @TableField
+    @TableField(update = "now()")
     /**
      * 如果数据库是datetime保存大库里相差8小时 查询出来是对的
      * 如果使用数据库now()函数 保存到数据库是正常的 但是查询出来错误

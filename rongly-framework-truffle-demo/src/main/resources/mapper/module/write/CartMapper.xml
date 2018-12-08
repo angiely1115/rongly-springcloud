@@ -6,4 +6,16 @@
         INSERT INTO `cart` (productId,qty,buyUserId,createTime,sourceFrom)
         VALUES (#{productId},#{qty},#{buyUserId},now(),#{sourceFrom})
     </insert>
+
+    <update id="updateCartByProductId" parameterType="com.rongly.framework.demo.entity.CartEntity">
+        update `cart`
+        <set>
+            sourceFrom = #{sourceFrom},
+            qty = #{qty},
+            createTime = now()
+        </set>
+        <where>
+            productId = #{productId}
+        </where>
+    </update>
 </mapper>

@@ -18,4 +18,6 @@ public interface CartWriteDao extends BaseMapper<CartEntity> {
 
     int addCart(CartEntity cartEntity);
 
+    int updateCartByProductId(CartEntity cartEntity);
+
 }

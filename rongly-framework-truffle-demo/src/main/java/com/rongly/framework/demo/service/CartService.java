@@ -32,4 +32,8 @@ public class CartService extends ServiceImpl<CartWriteDao, CartEntity> {
         cartWriteDao.insert(cartEntity);
         return cartEntity;
     }
+
+    public Integer updateCartByProductId(CartEntity cartEntity){
+        return cartWriteDao.updateCartByProductId(cartEntity);
+    }
 }
