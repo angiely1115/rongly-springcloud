@@ -11,6 +11,8 @@ spring:
           search-paths: '{application}'
   profiles:
     active: test
+encrypt:
+  key: lvrongzhuan
 #将分布式配置中心也注册到eureka上
 eureka:
   client:
@@ -22,4 +24,3 @@ eureka:
     prefer-ip-address: true
     lease-expiration-duration-in-seconds: 30
     lease-renewal-interval-in-seconds: 10
-
