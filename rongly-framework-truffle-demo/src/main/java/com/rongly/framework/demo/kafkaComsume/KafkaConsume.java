@@ -6,6 +6,8 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Component;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @Author: lvrongzhuan
  * @Description: kakfa客户端
@@ -18,8 +20,9 @@ import org.springframework.stereotype.Component;
 public class KafkaConsume {
 
     @KafkaListener(topics = "test-hello-kafka-topic",containerFactory = "kafkaListenerContainerFactory")
-    public void helloTopicComsume(RonglyKakfaMessage ronglyKakfaMessage,Acknowledgment acknowledgment){
+    public void helloTopicComsume(RonglyKakfaMessage ronglyKakfaMessage,Acknowledgment acknowledgment) throws InterruptedException {
         log.info("消费 topic:{},参数:{}","test-hello-kafka-topic",ronglyKakfaMessage);
+//        TimeUnit.MINUTES.sleep(5);
         acknowledgment.acknowledge();
     }
 

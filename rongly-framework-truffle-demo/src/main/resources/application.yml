@@ -15,6 +15,10 @@ spring:
     redis:
       time-to-live: 10000s #默认过期时间 不设置默认永不过期
       use-key-prefix: false # 不使用cache-name:: 默认使用
+  data:
+    mongodb:
+      database: testdb
+      uri: mongodb://47.95.120.66:27011/testdb
   kafka:
     producer:
       bootstrap-servers: 47.95.120.66:9092,47.95.120.66:9093,47.95.120.66:9094

@@ -34,6 +34,10 @@
             <artifactId>xs-rongly-framework-stater-jdbc</artifactId>
         </dependency>
         <dependency>
+            <groupId>xs.rongly.framework.truffle</groupId>
+            <artifactId>xs-rongly-framework-stater-mongodb</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>2.1.0.RELEASE</version>
