@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" ng-controller="mybankController">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="/css/angularCommon.css"/>
+<link rel="stylesheet" type="text/css" href="/css/pay/qr.css"/>
+<script src="/js/jquery.min.js?v=2.1.4"></script>
+<script type="text/javascript" src="/js/angular1.6.7.min.js"></script>
+<script type="text/javascript" src="/js/appjs/pay/payProperty/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/qrcode.js"></script>
+
+<title>平台支付</title>
+<meta name="keywords" content="jfpay支付系统">
+<meta name="description" content="jfpay支付系统">
+<!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+<script>
+	if (window.top !== window.self) {
+		window.top.location = window.location;
+	}
+</script>
+</head>
+
+<body>
+<div id="qr_topDiv">
+	<a href="javascript:history.go(-1)" target="_self"><img src="/img/payImg/return.png" class="returnImg"></a>
+	<img src="/img/payImg/qr.png" class="qr_log">
+</div>
+<div id="qr_content">
+	<ul>
+		<li class="qr_money">订单金额:<span>¥<x ng-bind="qr_payMoney"></x></span></li>
+		<li class="qr_tipsList">请在浏览器中打开此页面</li>
+		<li  ng-show="jfShowImg" class="ng-hide clipTag" style="position:relative;overflow:hidden;">
+			<img ng-show="timeEnouth" style="border: 0;position: absolute;left: -123px;clip: rect(1px 297px 300px 1px);width: 400px;height: 480px;" class="clipImg ng-hide">
+		</li>
+		<li ng-hide="jfShowImg" class="ng-hide clipTag" style="position:relative;overflow:hidden;width: 16rem;height: 13rem;">
+			<img ng-show="timeEnouth" style="border: 0px;position: absolute;left: -94px;clip: rect(1px 333px 366px 1px);width: 400px;height: 480px;" class="clipImg ng-hide">
+		</li>
+		<li class="normal">			
+			<a th:href="${'alipays://platformapi/startapp?appId=09999988&actionType=toCard&sourceId=bill&cardNo=' +cardNo+ 
+						'&bankAccount=' +bankAccount+ '&money=' +amount+ '&amount='+amount+ 
+						'&bankMark=' +bankMark+ '&bankName='+bankName}"  target="_self">跳转支付宝</a>
+		</li>
+
+		<li class="ng-hide" class="timeEnouth" ng-show="true">
+			<a  th:href="${'/pay/return/' + company + '/' + merchNo + '/' + orderNo}" target="_self">支付成功，返回商户！</a>
+		</li>
+		<li class="normal">付款即时到账 未到账可联系我们</li>
+	</ul>
+	<div id="black_YingDao" >
+		<div id="qrcodeImg"></div>
+	</div>
+</div>
+
+	<!-- <div>
+	    alipays://platformapi/startapp?appId=09999988
+	    alipayqr://platformapi/startapp?saId=10000007
+		提示信息：<span th:text="${msg}"></span><br>
+		二维码收款图片：<img width="350" alt="扫码支付" th:src="@{${qr_url}}"><br>
+		支付剩余时间：<span th:text="${remainSec}"></span><br>
+		商户号：<span th:text="${merchNo}"></span><br>
+		订单号：<span th:text="${orderNo}"></span><br>
+		支付金额（￥）：<span th:text="${amount}"></span><br>
+		支付渠道：<span th:text="${outChannel}"></span><br>
+		支付渠道描述：<span th:each="oCh:${outChannelDesc}" th:text="${oCh.key} + '-' + ${oCh.value}"></a><br>
+		支付返回地址：<span th:text="${returnUrl}"></span>
+	</div> -->
+	<!-- 全局js -->
+	<script th:inline="javascript">
+	/*<![CDATA[*/
+
+		var amount = [[${amount}]];
+		var returnUrl = [[${returnUrl}]];
+		//商户号
+		var merchNo = [[${merchNo}]];
+		//订单号
+		var orderNo = [[${orderNo}]];
+		//支付宝userid
+		var userid = [[${userid}]];
+		var company = [[${company}]];
+		//支付方式
+		var outChannel = [[${outChannel}]];
+		var qrcode_url = [[${qrcode_url}]];
+		/* qrcode_url = encodeURIComponent(qrcode_url); */
+		var qrcode = new QRCode(document.getElementById("qrcodeImg"), {
+			width : 200,
+			height : 200
+		});
+	/*]]>*/
+	</script>
+</body>	
+<script>
+function isWxBrowser(){
+	var browser = navigator.userAgent.toLowerCase();
+ 	if(browser.match(/MicroMessenger/i)=="micromessenger"){
+	    return true;
+	} 
+	
+	return false;
+}
+
+function isWebBrowser(){
+	var browser = navigator.userAgent.toLowerCase();
+	 
+	if(browser.match(/Alipay/i)=="alipay"){
+	    return false;
+	}
+	
+ 	if(browser.match(/MicroMessenger/i)=="micromessenger"){
+	    return false;
+	} 
+ 	
+ 	if(browser.match(/QQ/i) == 'qq'){
+	    return false;
+	} 
+ 	
+ 	var bIsIpad = browser.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = browser.match(/iphone os/i) == "iphone os";
+    var bIsMidp = browser.match(/midp/i) == "midp";
+    var bIsUc7 = browser.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = browser.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = browser.match(/android/i) == "android";
+    var bIsCE = browser.match(/windows ce/i) == "windows ce";
+    var bIsWM = browser.match(/windows mobile/i) == "windows mobile";
+    if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+    } else {
+        return false;
+    }
+ 	
+	return true;
+}
+//$(".clipTag").css("background","url("+qr_url+") -94px -121px / 200% 250% no-repeat");
+var myApp = angular.module("myApp", [])
+.controller("mybankController",function($scope,$interval){
+	
+	/* 任意金额   1  0.jpg */
+	qrAnyMoneyFlag = 1;
+	if(qrAnyMoneyFlag == 1){
+		$(".clipImg").css("top","-88px");
+	}else{
+		$(".clipImg").css("top","-120px");
+	}
+
+		$scope.jfShowImg = false;
+		$(".qr_log").attr("src","/img/payImg/alipayImg.png");
+		$(".clipImg").css("top","-157px");
+		$("#black_YingDao .blackDiv").css({"left":"-26px","width":"250px","height":"198px"})
+	//$(".clipTag img").attr("src",qr_url);
+	
+	$scope.timeEnouth = true;
+	$scope.qr_payMoney = amount;
+	
+	qrcode.makeCode(qrcode_url);
+	if(isWebBrowser()){
+		location.href= qrcode_url;
+	} 
+	
+});
+
+</script>
+</html>

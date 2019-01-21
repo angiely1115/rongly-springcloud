@@ -1,0 +1,42 @@
+
+spring:
+  application:
+    name: rongly-sso-server
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: classpath:/static/
+  freemarker:
+    template-loader-path: classpath:/templates/
+    suffix: .ftl
+    request-context-attribute: request
+    settings:
+      number_format: 0.##########
+  redis:
+    cluster:
+      nodes:
+      - 10.10.3.71:7000
+      - 10.10.3.71:7001
+      - 10.10.3.71:7002
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 5
+  cache:
+    redis:
+      time-to-live: 10000s #默认过期时间 不设置默认永不过期
+      use-key-prefix: false # 不使用cache-name:: 默认使用
+server:
+  port: 9090
+  servlet:
+    context-path: /xxl-sso-server
+xxl:
+  sso:
+    redis:
+      expire:
+        minite: 300
+### xxl-sso
+  xxl.sso.server=http://xxlssoserver.com:8080/xxl-sso-server
+  xxl.sso.logout.path=/logout
+  xxl-sso.excluded.paths=
+  xxl.sso.redis.address=redis://127.0.0.1:6379
