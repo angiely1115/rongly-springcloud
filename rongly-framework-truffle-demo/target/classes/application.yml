@@ -1,6 +1,9 @@
 spring:
   application:
     name: rongly-framework-demo
+  profiles:
+    active:
+      dev
   redis:
     cluster:
       nodes:
@@ -48,7 +51,7 @@ rongly:
         jdbcUrl: jdbc:mysql://10.10.8.205:3306/b2b_sale?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
         userName: caocao
         password: caocao123
-        driverClassName: com.mysql.jdbc.Driver
+        driverClassName: com.mysql.cj.jdbc.Driver
         jdbcPoolConfig:
           maximumPoolSize: 30
           connectionInitSql: 'set names utf8mb4;'
@@ -56,7 +59,7 @@ rongly:
         jdbcUrl: jdbc:mysql://10.10.8.205:3306/b2b_sale?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
         userName: caocao
         password: caocao123
-        driverClassName: com.mysql.jdbc.Driver
+        driverClassName: com.mysql.cj.jdbc.Driver
         jdbcPoolConfig:
           maximumPoolSize: 30
           connectionInitSql: 'set names utf8mb4;'
@@ -110,7 +113,7 @@ mybatis-plus:
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
   mapper-locations: classpath:mapper/module/*/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: com.rongly.framework.demo.entity
+  typeAliasesPackage: com.rongly.zupu.entity
   global-config:
     #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
     id-type: 0
@@ -138,7 +141,7 @@ mybatis-plus:
     cache-enabled: false
     #配置JdbcTypeForNull, oracle数据库必须配置
     #jdbc-type-for-null: 'null'
-  type-handlers-package: com.rongly.framework.demo.dao
+  type-handlers-package: com.rongly.zupu.dao
 logging:
   level:
     jdbc:
@@ -150,3 +153,34 @@ logging:
 log4jdbc.sqltiming:
   warn.threshold: 300   # 300ms 会打印warn级别的日志
   error.threshold: 500  # 500ms 会打印error级别的日志
+
+#监控配置
+management:
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  endpoints:
+    web:
+      cors:
+        allow-credentials: false
+        allowed-origins: '*'
+        allowed-headers: '*'
+        allowed-methods: '*'
+      exposure:
+        include:
+          - health     # 健康检查
+          - info       # 项目信息
+          - env        # 环境变量
+          - metrics    # 项目度量
+          - refresh    # 刷新配置
+          - loggers    # 日志级别
+          - mappings   # 请求接口路径
+          - beans
+          - configprops
+          - status
+          - httptrace
+          - httpdump
+          - scheduledtasks
+          - rongly-scheduledtasks

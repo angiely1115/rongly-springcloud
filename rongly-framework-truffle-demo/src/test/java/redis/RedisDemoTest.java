@@ -35,8 +35,12 @@ public class RedisDemoTest {
     public void test(){
         Map map = MapUtil.newHashMap();
         map.put("map1","kkkk");
-        redisTemplate.opsForValue().set("mymap1",map);
-        redisTemplate.expire("mymap1",2, TimeUnit.MINUTES);
+        redisTemplate.opsForValue().set("mymap1",map,2, TimeUnit.MINUTES);
+        long expireTime = redisTemplate.getExpire("mymap1",TimeUnit.SECONDS);
+        System.out.println("过期时间:"+expireTime+"s");
+
+        expireTime = redisTemplate.getExpire("mymap2",TimeUnit.SECONDS);
+        System.out.println("不存在key的过期时间:"+expireTime);
         System.out.println(stringRedisTemplate);
     }
 
