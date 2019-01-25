@@ -1,12 +1,9 @@
-package com.xxl.sso.sample;
+package com.rongly.zupu.sso.web.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-/**
- * @author xuxueli 2018-03-22 23:41:47
- */
-@SpringBootApplication
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 public class XxlClientApplication {
 
 	public static void main(String[] args) {

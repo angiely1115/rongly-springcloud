@@ -1,8 +1,9 @@
-package com.xxl.sso.sample.controller;
+package com.rongly.zupu.sso.web.sample.controller;
 
-import com.xxl.sso.core.conf.Conf;
-import com.xxl.sso.core.entity.ReturnT;
-import com.xxl.sso.core.user.XxlSsoUser;
+import com.rongly.zupu.core.conf.Conf;
+import com.rongly.zupu.core.entity.ReturnT;
+import com.rongly.zupu.core.user.XxlSsoUser;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,15 +17,14 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class IndexController {
 
-    @RequestMapping("/")
+    @RequestMapping("/index")
     public String index(Model model, HttpServletRequest request) {
-
         XxlSsoUser xxlUser = (XxlSsoUser) request.getAttribute(Conf.SSO_USER);
         model.addAttribute("xxlUser", xxlUser);
-        return "index";
+        return "/main";
     }
 
-    @RequestMapping("/json")
+    @RequestMapping(value = "/json",produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public ReturnT<XxlSsoUser> json(Model model, HttpServletRequest request) {
         XxlSsoUser xxlUser = (XxlSsoUser) request.getAttribute(Conf.SSO_USER);

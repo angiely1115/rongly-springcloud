@@ -1,20 +1,21 @@
-package com.xxl.sso.sample.config;
+package com.rongly.zupu.sso.web.sample.config;
 
-import com.xxl.sso.core.conf.Conf;
-import com.xxl.sso.core.filter.XxlSsoWebFilter;
-import com.xxl.sso.core.util.JedisUtil;
+import com.rongly.zupu.core.conf.Conf;
+import com.rongly.zupu.core.filter.XxlSsoWebFilter;
+import com.rongly.zupu.core.util.JedisUtil;
 import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.core.RedisTemplate;
 
 /**
  * @author xuxueli 2018-11-15
  */
 @Configuration
-public class XxlSsoConfig implements DisposableBean {
-
+public class XxlSsoConfig {
 
     @Value("${xxl.sso.server}")
     private String xxlSsoServer;
@@ -22,22 +23,18 @@ public class XxlSsoConfig implements DisposableBean {
     @Value("${xxl.sso.logout.path}")
     private String xxlSsoLogoutPath;
 
-    @Value("${xxl-sso.excluded.paths}")
+    @Value("${xxl.sso.excluded.paths}")
     private String xxlSsoExcludedPaths;
 
-    @Value("${xxl.sso.redis.address}")
-    private String xxlSsoRedisAddress;
-
+    @Autowired
+    private RedisTemplate<String,Object> redisTemplate;
 
     @Bean
     public FilterRegistrationBean xxlSsoFilterRegistration() {
-
         // xxl-sso, redis init
-        JedisUtil.init(xxlSsoRedisAddress);
-
+        JedisUtil.init(redisTemplate);
         // xxl-sso, filter init
         FilterRegistrationBean registration = new FilterRegistrationBean();
-
         registration.setName("XxlSsoWebFilter");
         registration.setOrder(1);
         registration.addUrlPatterns("/*");
@@ -45,15 +42,7 @@ public class XxlSsoConfig implements DisposableBean {
         registration.addInitParameter(Conf.SSO_SERVER, xxlSsoServer);
         registration.addInitParameter(Conf.SSO_LOGOUT_PATH, xxlSsoLogoutPath);
         registration.addInitParameter(Conf.SSO_EXCLUDED_PATHS, xxlSsoExcludedPaths);
-
         return registration;
-    }
-
-    @Override
-    public void destroy() throws Exception {
-
-        // xxl-sso, redis close
-        JedisUtil.close();
     }
 
 }
