@@ -18,6 +18,9 @@ spring:
     redis:
       time-to-live: 10000s #默认过期时间 不设置默认永不过期
       use-key-prefix: false # 不使用cache-name:: 默认使用
+  session:
+    store-type: REDIS
+    timeout: 180s
   data:
     mongodb:
       database: testdb
@@ -40,6 +43,7 @@ spring:
       value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
     listener:
       ack-mode: manual_immediate
+
 rongly:
   zookeeper:
     enabled: true #是否使用zookeeper
@@ -100,6 +104,17 @@ rongly:
                master-data-source-name: ds-master
                slave-data-source-names: ds-slave-1,ds-slave-2
           binding-tables: cart
+  security:
+    browser:
+      signInPage: /rongly-signIn.html
+      signInResponseType: JSON
+      singInSuccessUrl: /index.html
+      signOutUrl: /rongly-logout.html
+    exclude-paths: /user/exception
+
+
+
+
 
 
 
