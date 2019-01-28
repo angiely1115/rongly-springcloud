@@ -3,7 +3,7 @@ spring:
     name: rongly-framework-demo
   profiles:
     active:
-      dev
+      local
   redis:
     cluster:
       nodes:
@@ -110,13 +110,14 @@ rongly:
       signInResponseType: JSON
       singInSuccessUrl: /index.html
       signOutUrl: /rongly-logout.html
-    exclude-paths: /user/exception
-
-
-
-
-
-
+    exclude-paths: /user/exception,/actuator/*,/authentication/mobile
+    oauth2:
+      clients[0]:
+        clientId: rongly
+        clientSecret: ronglySecret
+      jwt-signing-key: imooc
+      token:
+        use: jwt
 
 #mybatis.config-location: classpath:mapper/mybatis-config.xml
 #mybatis.mapper-locations: classpath:mapper/module/*.xml
@@ -158,6 +159,7 @@ mybatis-plus:
     #jdbc-type-for-null: 'null'
   type-handlers-package: com.rongly.zupu.dao
 logging:
+  file: ${spring.application.name}
   level:
     jdbc:
       sqltiming: WARN #包含 SQL 语句实际的执行时间

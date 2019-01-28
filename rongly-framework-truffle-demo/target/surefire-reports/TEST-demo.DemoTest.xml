@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite tests="8" failures="0" name="demo.DemoTest" time="1.238" errors="2" skipped="0">
+  <properties>
+    <property name="idea.version" value="2018.2.5"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_121\jre\bin"/>
+    <property name="java.vm.version" value="25.121-b13"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="maven.multiModuleProjectDirectory" value="D:\resource\workspace\fenbushi2017\rongly-framework-truffle-demo"/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="path.separator" value=";"/>
+    <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="file.encoding.pkg" value="sun.io"/>
+    <property name="user.script" value=""/>
+    <property name="user.country" value="CN"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.os.patch.level" value="Service Pack 1"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="user.dir" value="D:\resource\workspace\fenbushi2017\rongly-framework-truffle-demo"/>
+    <property name="java.runtime.version" value="1.8.0_121-b13"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_121\jre\lib\endorsed"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="visualvm.id" value="298828273404041"/>
+    <property name="java.io.tmpdir" value="C:\Users\ADMINI~1\AppData\Local\Temp\"/>
+    <property name="line.separator" value="
+"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.variant" value=""/>
+    <property name="os.name" value="Windows 7"/>
+    <property name="classworlds.conf" value="E:\opt\IntelliJ IDEA 2018.2.5\plugins\maven\lib\maven3\bin\m2.conf"/>
+    <property name="sun.jnu.encoding" value="GBK"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_121\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;E:\soft\gradle-4.6\bin;E:\soft\go\bin;E:\opt\nodejs\;E:\soft\apache-maven-3.5.0\bin;C:\Program Files (x86)\Lua\5.1;C:\Program Files (x86)\Lua\5.1\clibs;E:\soft\mongodb-win32-x86_64-2008plus-ssl-4.0.4\bin;E:\var\Scripts\;E:\var\;E:\soft\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm;."/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.class.version" value="52.0"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="os.version" value="6.1"/>
+    <property name="user.home" value="C:\Users\Administrator"/>
+    <property name="user.timezone" value="GMT+08:00"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="java.specification.version" value="1.8"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="user.name" value="Administrator"/>
+    <property name="java.class.path" value="E:\opt\IntelliJ IDEA 2018.2.5\plugins\maven\lib\maven3\boot\plexus-classworlds-2.5.2.jar;E:\opt\IntelliJ IDEA 2018.2.5\lib\idea_rt.jar"/>
+    <property name="java.vm.specification.version" value="1.8"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_121\jre"/>
+    <property name="sun.java.command" value="org.codehaus.classworlds.Launcher -Didea.version=2018.2.5 -s E:\soft\apache-maven-3.5.0\settings3.xml install"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="user.language" value="zh"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.version" value="1.8.0_121"/>
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_121\jre\lib\ext;C:\Windows\Sun\Java\lib\ext"/>
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_121\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_121\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_121\jre\classes"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="maven.home" value="E:\opt\IntelliJ IDEA 2018.2.5\plugins\maven\lib\maven3"/>
+    <property name="file.separator" value="\"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.desktop" value="windows"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+  </properties>
+  <testcase classname="demo.DemoTest" name="testAddCart" time="0.958"/>
+  <testcase classname="demo.DemoTest" name="testMoreSlaver" time="0.055"/>
+  <testcase classname="demo.DemoTest" name="testUpdate1" time="0.035"/>
+  <testcase classname="demo.DemoTest" name="testUpdate2" time="0.033">
+    <error message="/ by zero" type="java.lang.ArithmeticException">java.lang.ArithmeticException: / by zero
+	at demo.DemoTest.testUpdate2(DemoTest.java:121)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+</error>
+    <system-out>[2019-01-27 20:15:47.159] [main] [] [] INFO  jdbc.connection - 6. Connection opened  org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:262)
+[2019-01-27 20:15:47.159] [main] [] [] DEBUG jdbc.connection - open connections:  6 (1)
+[2019-01-27 20:15:47.160] [main] [] [] INFO  o.s.test.context.transaction.TransactionContext - Began transaction (1) for test context [DefaultTestContext@158a8276 testClass = DemoTest, testInstance = demo.DemoTest@163cd4a6, testMethod = testUpdate2@DemoTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@3c3d9b6b testClass = DemoTest, locations = &apos;{}&apos;, classes = &apos;{class com.rongly.framework.demo.FrameworkDemoApplication, class com.rongly.framework.demo.FrameworkDemoApplication}&apos;, contextInitializerClasses = &apos;[]&apos;, activeProfiles = &apos;{}&apos;, propertySourceLocations = &apos;{}&apos;, propertySourceProperties = &apos;{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}&apos;, contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4ba2ca36, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6a79c292, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@473b46c3, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@78a2da20, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@58134517], resourceBasePath = &apos;src/main/webapp&apos;, contextLoader = &apos;org.springframework.boot.test.context.SpringBootContextLoader&apos;, parent = [null]], attributes = map[&apos;org.springframework.test.context.web.ServletTestExecutionListener.activateListener&apos; -&gt; true, &apos;org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder&apos; -&gt; true, &apos;org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder&apos; -&gt; true]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@26caf4b6]; rollback [true]
+[2019-01-27 20:15:47.161] [main] [] [] INFO  jdbc.sqlonly - update `cart` SET sourceFrom = 8, qty = 1, createTime = now() WHERE productId = 378598 
+
+[2019-01-27 20:15:47.181] [main] [] [] INFO  jdbc.connection - 6. Connection closed  org.springframework.jdbc.datasource.DataSourceUtils.doCloseConnection(DataSourceUtils.java:354)
+[2019-01-27 20:15:47.181] [main] [] [] DEBUG jdbc.connection - open connections:  none
+[2019-01-27 20:15:47.181] [main] [] [] INFO  o.s.test.context.transaction.TransactionContext - Rolled back transaction for test: [DefaultTestContext@158a8276 testClass = DemoTest, testInstance = demo.DemoTest@163cd4a6, testMethod = testUpdate2@DemoTest, testException = java.lang.ArithmeticException: / by zero, mergedContextConfiguration = [WebMergedContextConfiguration@3c3d9b6b testClass = DemoTest, locations = &apos;{}&apos;, classes = &apos;{class com.rongly.framework.demo.FrameworkDemoApplication, class com.rongly.framework.demo.FrameworkDemoApplication}&apos;, contextInitializerClasses = &apos;[]&apos;, activeProfiles = &apos;{}&apos;, propertySourceLocations = &apos;{}&apos;, propertySourceProperties = &apos;{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}&apos;, contextCustomizers = set[org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4ba2ca36, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@6a79c292, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@473b46c3, org.springframework.boot.test.web.reactive.server.WebTestClientContextCustomizer@78a2da20, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@58134517], resourceBasePath = &apos;src/main/webapp&apos;, contextLoader = &apos;org.springframework.boot.test.context.SpringBootContextLoader&apos;, parent = [null]], attributes = map[&apos;org.springframework.test.context.web.ServletTestExecutionListener.activateListener&apos; -&gt; true, &apos;org.springframework.test.context.web.ServletTestExecutionListener.populatedRequestContextHolder&apos; -&gt; true, &apos;org.springframework.test.context.web.ServletTestExecutionListener.resetRequestContextHolder&apos; -&gt; true]]
+</system-out>
+  </testcase>
+  <testcase classname="demo.DemoTest" name="testOrderQuery1" time="0.049"/>
+  <testcase classname="demo.DemoTest" name="testQuery1" time="0.031"/>
+  <testcase classname="demo.DemoTest" name="testQuery2" time="0.043">
+    <error message="nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2" type="org.mybatis.spring.MyBatisSystemException">org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:77)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:446)
+	at com.sun.proxy.$Proxy127.selectOne(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectOne(SqlSessionTemplate.java:166)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:83)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:59)
+	at com.sun.proxy.$Proxy132.selectById(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy133.selectById(Unknown Source)
+	at com.baomidou.mybatisplus.service.impl.ServiceImpl.selectById(ServiceImpl.java:359)
+	at com.baomidou.mybatisplus.service.impl.ServiceImpl$$FastClassBySpringCGLIB$$3e2398a4.invoke(&lt;generated&gt;)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:684)
+	at com.rongly.framework.demo.service.CartService$$EnhancerBySpringCGLIB$$cf313cf3.selectById(&lt;generated&gt;)
+	at demo.DemoTest.testQuery2(DemoTest.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestExecutionCallbacks.evaluate(RunBeforeTestExecutionCallbacks.java:74)
+	at org.springframework.test.context.junit4.statements.RunAfterTestExecutionCallbacks.evaluate(RunAfterTestExecutionCallbacks.java:84)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestMethodCallbacks.evaluate(RunBeforeTestMethodCallbacks.java:75)
+	at org.springframework.test.context.junit4.statements.RunAfterTestMethodCallbacks.evaluate(RunAfterTestMethodCallbacks.java:86)
+	at org.springframework.test.context.junit4.statements.SpringRepeat.evaluate(SpringRepeat.java:84)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:251)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61)
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+Caused by: org.apache.ibatis.exceptions.TooManyResultsException: Expected one result (or null) to be returned by selectOne(), but found: 2
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectOne(DefaultSqlSession.java:81)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:433)
+	... 59 more
+</error>
+    <system-out>[2019-01-27 20:15:47.270] [main] [] [] INFO  jdbc.connection - 9. Connection opened  org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+[2019-01-27 20:15:47.270] [main] [] [] DEBUG jdbc.connection - open connections:  9 (1)
+[2019-01-27 20:15:47.271] [main] [] [] INFO  jdbc.sqlonly - SELECT id,productId,qty,buyUserId,sourceFrom,createTime FROM cart WHERE id=3009 
+
+[2019-01-27 20:15:47.276] [main] [] [] INFO  jdbc.resultsettable - 
+|-----|----------|------|----------|-----------|----------------------|
+|id   |productid |qty   |buyuserid |sourcefrom |createtime            |
+|-----|----------|------|----------|-----------|----------------------|
+|3009 |743727    |99999 |6         |[null]     |2016-07-14 15:59:14.0 |
+|-----|----------|------|----------|-----------|----------------------|
+
+[2019-01-27 20:15:47.277] [main] [] [] INFO  jdbc.connection - 9. Connection closed  org.springframework.jdbc.datasource.DataSourceUtils.doCloseConnection(DataSourceUtils.java:354)
+[2019-01-27 20:15:47.278] [main] [] [] DEBUG jdbc.connection - open connections:  none
+CartEntity(id=3009, productId=743727, qty=99999, buyUserId=6, sourceFrom=null, createTime=2016-07-14T15:59:14+08:00[GMT+08:00])
+*******************ǿ�ƶ�����*****************
+[2019-01-27 20:15:47.280] [main] [] [] INFO  jdbc.connection - 10. Connection opened  org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+[2019-01-27 20:15:47.280] [main] [] [] DEBUG jdbc.connection - open connections:  10 (1)
+[2019-01-27 20:15:47.281] [main] [] [] INFO  jdbc.sqlonly - SELECT id,productId,qty,buyUserId,sourceFrom,createTime FROM cart WHERE id=3009 
+
+[2019-01-27 20:15:47.290] [main] [] [] INFO  jdbc.resultsettable - 
+|-----|----------|------|----------|-----------|----------------------|
+|id   |productid |qty   |buyuserid |sourcefrom |createtime            |
+|-----|----------|------|----------|-----------|----------------------|
+|3009 |743727    |99999 |6         |[null]     |2016-07-14 15:59:14.0 |
+|-----|----------|------|----------|-----------|----------------------|
+
+[2019-01-27 20:15:47.292] [main] [] [] INFO  jdbc.connection - 10. Connection closed  org.springframework.jdbc.datasource.DataSourceUtils.doCloseConnection(DataSourceUtils.java:354)
+[2019-01-27 20:15:47.292] [main] [] [] DEBUG jdbc.connection - open connections:  none
+CartEntity(id=3009, productId=743727, qty=99999, buyUserId=6, sourceFrom=null, createTime=2016-07-14T15:59:14+08:00[GMT+08:00])
+[2019-01-27 20:15:47.293] [main] [] [] INFO  jdbc.connection - 11. Connection opened  org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:151)
+[2019-01-27 20:15:47.293] [main] [] [] DEBUG jdbc.connection - open connections:  11 (1)
+[2019-01-27 20:15:47.294] [main] [] [] INFO  jdbc.sqlonly - SELECT id,productId,qty,buyUserId,sourceFrom,createTime FROM cart WHERE id=3006 
+
+[2019-01-27 20:15:47.301] [main] [] [] INFO  jdbc.resultsettable - 
+|-----|----------|-----|----------|-----------|----------------------|
+|id   |productid |qty  |buyuserid |sourcefrom |createtime            |
+|-----|----------|-----|----------|-----------|----------------------|
+|3006 |8889      |5001 |934640    |[null]     |2019-01-27 20:17:21.0 |
+|3006 |8889      |99   |111       |1          |2019-01-27 20:17:21.0 |
+|-----|----------|-----|----------|-----------|----------------------|
+
+[2019-01-27 20:15:47.302] [main] [] [] INFO  jdbc.connection - 11. Connection closed  org.springframework.jdbc.datasource.DataSourceUtils.doCloseConnection(DataSourceUtils.java:354)
+[2019-01-27 20:15:47.303] [main] [] [] DEBUG jdbc.connection - open connections:  none
+</system-out>
+  </testcase>
+  <testcase classname="demo.DemoTest" name="testQuery3" time="0.034"/>
+</testsuite>

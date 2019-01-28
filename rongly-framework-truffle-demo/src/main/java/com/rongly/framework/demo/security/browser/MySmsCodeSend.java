@@ -18,7 +18,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class MySmsCodeSend implements SmsCodeSender {
     @Override
     public void send(String mobile, String code) {
-      long codeR = ThreadLocalRandom.current().nextLong(1000,9999);
-      log.info("手机号：{}接收验证码为：{}",mobile,codeR);
+      log.info("手机号：{}接收验证码为：{}",mobile,code);
     }
 }

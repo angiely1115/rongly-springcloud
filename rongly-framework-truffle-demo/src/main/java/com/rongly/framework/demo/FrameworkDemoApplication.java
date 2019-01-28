@@ -1,12 +1,13 @@
 package com.rongly.framework.demo;
 
-import com.xs.rongly.framework.stater.security.autoConfig.annotation.EnableBrowserSecurityConfig;
-import org.mybatis.spring.annotation.MapperScan;
+import com.xs.rongly.framework.stater.security.autoConfig.annotation.EnableAPPSecurityConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -23,8 +24,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
         basePackages = {"com.xs.rongly.framework.stater.security.spring.security.core", "com.xs.rongly.framework.stater.security.spring.security.browser"
         }
 )*/
-@EnableBrowserSecurityConfig
+//使用浏览器
+//@EnableBrowserSecurityConfig
+@EnableAPPSecurityConfig
 public class FrameworkDemoApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(FrameworkDemoApplication.class,args);
     }

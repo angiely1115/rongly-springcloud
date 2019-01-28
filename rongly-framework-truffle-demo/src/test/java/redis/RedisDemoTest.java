@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Map;
@@ -31,6 +32,9 @@ public class RedisDemoTest {
     @Autowired
     private RedisCacheDemo redisCacheDemo;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Test
     public void test(){
         Map map = MapUtil.newHashMap();
@@ -48,5 +52,11 @@ public class RedisDemoTest {
     public void testCache(){
         redisCacheDemo.addMap();
     }
+
+    @Test
+    public void testpassword(){
+        System.out.println(passwordEncoder.encode("123456"));
+    }
+
 
 }
