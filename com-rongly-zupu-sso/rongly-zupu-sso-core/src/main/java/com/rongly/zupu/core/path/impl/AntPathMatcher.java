@@ -1,7 +1,8 @@
-package com.xxl.sso.core.path.impl;
+package com.rongly.zupu.core.path.impl;
 
-import com.xxl.sso.core.path.PathMatcher;
-import com.xxl.sso.core.util.StringUtils;
+
+import com.rongly.zupu.core.path.PathMatcher;
+import com.rongly.zupu.core.util.StringUtils;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -563,7 +564,7 @@ public class AntPathMatcher implements PathMatcher {
 	/**
 	 * Given a full path, returns a {@link Comparator} suitable for sorting patterns in order of
 	 * explicitness.
-	 * <p>This{@code Comparator} will {@linkplain java.util.Collections#sort(List, Comparator) sort}
+	 * <p>This{@code Comparator} will {@linkplain Collections#sort(List, Comparator) sort}
 	 * a list so that more specific patterns (without uri templates or wild cards) come before
 	 * generic patterns. So given a list with the following patterns:
 	 * <ol>

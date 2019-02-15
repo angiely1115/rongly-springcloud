@@ -1,8 +1,8 @@
-package com.xxl.sso.server.service.impl;
+package com.rongly.zupu.sso.server.service.impl;
 
-import com.xxl.sso.server.core.model.UserInfo;
-import com.xxl.sso.server.core.result.ReturnT;
-import com.xxl.sso.server.service.UserService;
+import com.rongly.zupu.core.entity.ReturnT;
+import com.rongly.zupu.sso.server.core.model.UserInfo;
+import com.rongly.zupu.sso.server.service.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

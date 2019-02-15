@@ -1,4 +1,4 @@
-package com.xxl.sso.core.path;
+package com.rongly.zupu.core.path;
 
 import java.util.Comparator;
 import java.util.Map;
@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Strategy interface for {@code String}-based path matching.
  *
- * <p>The default implementation is {@link com.xxl.sso.core.path.impl.AntPathMatcher}, supporting the Ant-style pattern syntax.		(borrowed from spring)
+ * <p>The default implementation is , supporting the Ant-style pattern syntax.		(borrowed from spring)
  */
 public interface PathMatcher {
 
@@ -81,7 +81,7 @@ public interface PathMatcher {
 	 * Given a full path, returns a {@link Comparator} suitable for sorting patterns in order of explicitness for that path.
 	 *
 	 * <p>The full algorithm used depends on the underlying implementation, but generally,
-	 * the returned {@code Comparator} will {@linkplain java.util.Collections#sort(java.util.List, java.util.Comparator) sort}
+	 * the returned {@code Comparator} will {@linkplain java.util.Collections#sort(java.util.List, Comparator) sort}
 	 * a list so that more specific patterns come before generic patterns.
 	 *
 	 * @param path the full path to use for comparison

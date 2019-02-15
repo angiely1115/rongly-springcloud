@@ -1,4 +1,7 @@
-package com.xxl.sso.core.entity;
+package com.rongly.zupu.core.entity;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 
@@ -8,6 +11,8 @@ import java.io.Serializable;
  * @author xuxueli 2015-12-4 16:32:31
  * @param <T>
  */
+@Getter
+@Setter
 public class ReturnT<T> implements Serializable {
 	public static final long serialVersionUID = 42L;
 
@@ -26,25 +31,6 @@ public class ReturnT<T> implements Serializable {
 	}
 	public ReturnT(T data) {
 		this.code = SUCCESS_CODE;
-		this.data = data;
-	}
-	
-	public int getCode() {
-		return code;
-	}
-	public void setCode(int code) {
-		this.code = code;
-	}
-	public String getMsg() {
-		return msg;
-	}
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-	public T getData() {
-		return data;
-	}
-	public void setData(T data) {
 		this.data = data;
 	}
 

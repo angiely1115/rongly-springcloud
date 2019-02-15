@@ -1,9 +1,9 @@
-package com.xxl.sso.core.filter;
+package com.rongly.zupu.core.filter;
 
-import com.xxl.sso.core.conf.Conf;
-import com.xxl.sso.core.login.SsoWebLoginHelper;
-import com.xxl.sso.core.path.impl.AntPathMatcher;
-import com.xxl.sso.core.user.XxlSsoUser;
+import com.rongly.zupu.core.conf.Conf;
+import com.rongly.zupu.core.login.SsoWebLoginHelper;
+import com.rongly.zupu.core.path.impl.AntPathMatcher;
+import com.rongly.zupu.core.user.XxlSsoUser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -103,14 +103,10 @@ public class XxlSsoWebFilter extends HttpServlet implements Filter {
             }
 
         }
-
         // ser sso user
         request.setAttribute(Conf.SSO_USER, xxlUser);
-
-
         // already login, allow
         chain.doFilter(request, response);
-        return;
     }
 
 }

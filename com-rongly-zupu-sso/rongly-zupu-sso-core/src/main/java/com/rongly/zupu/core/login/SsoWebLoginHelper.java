@@ -1,10 +1,11 @@
-package com.xxl.sso.core.login;
+package com.rongly.zupu.core.login;
 
-import com.xxl.sso.core.conf.Conf;
-import com.xxl.sso.core.store.SsoLoginStore;
-import com.xxl.sso.core.user.XxlSsoUser;
-import com.xxl.sso.core.util.CookieUtil;
-import com.xxl.sso.core.store.SsoSessionIdHelper;
+
+import com.rongly.zupu.core.conf.Conf;
+import com.rongly.zupu.core.store.SsoLoginStore;
+import com.rongly.zupu.core.store.SsoSessionIdHelper;
+import com.rongly.zupu.core.user.XxlSsoUser;
+import com.rongly.zupu.core.util.CookieUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

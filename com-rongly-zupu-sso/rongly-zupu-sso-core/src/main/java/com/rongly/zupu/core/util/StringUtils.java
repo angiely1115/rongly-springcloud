@@ -1,4 +1,4 @@
-package com.xxl.sso.core.util;
+package com.rongly.zupu.core.util;
 
 import java.util.ArrayList;
 import java.util.Collection;

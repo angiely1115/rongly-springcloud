@@ -1,12 +1,12 @@
-package com.xxl.sso.server.controller;
+package com.rongly.zupu.sso.server.controller;
 
-import com.xxl.sso.core.login.SsoTokenLoginHelper;
-import com.xxl.sso.core.store.SsoLoginStore;
-import com.xxl.sso.core.user.XxlSsoUser;
-import com.xxl.sso.core.store.SsoSessionIdHelper;
-import com.xxl.sso.server.core.model.UserInfo;
-import com.xxl.sso.server.core.result.ReturnT;
-import com.xxl.sso.server.service.UserService;
+import com.rongly.zupu.core.entity.ReturnT;
+import com.rongly.zupu.core.login.SsoTokenLoginHelper;
+import com.rongly.zupu.core.store.SsoLoginStore;
+import com.rongly.zupu.core.store.SsoSessionIdHelper;
+import com.rongly.zupu.core.user.XxlSsoUser;
+import com.rongly.zupu.sso.server.core.model.UserInfo;
+import com.rongly.zupu.sso.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

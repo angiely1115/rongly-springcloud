@@ -1,6 +1,7 @@
-package com.xxl.sso.core.store;
+package com.rongly.zupu.core.store;
 
-import com.xxl.sso.core.user.XxlSsoUser;
+
+import com.rongly.zupu.core.user.XxlSsoUser;
 
 /**
  * make client sessionId

@@ -3,10 +3,34 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <parent>
+        <groupId>xs.rongly.framework.truffle</groupId>
+        <artifactId>xs.rongly.framework.dependencies</artifactId>
+        <version>1.1.0-SNAPSHOT</version>
+    </parent>
     <groupId>com.rongly.zupu.sso</groupId>
     <artifactId>com-rongly-zupu-sso</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>rongly-zupu-sso-core</module>
+        <module>rongly-zupu-sso-server</module>
+        <module>rongly-zupu-sample</module>
+    </modules>
 
-    
+    <dependencies>
+        <dependency>
+            <groupId>xs.rongly.framework.truffle</groupId>
+            <artifactId>xs-rongly-framework-stater-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>xs.rongly.framework.truffle</groupId>
+            <artifactId>xs-rongly-framework-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>xs.rongly.framework.truffle</groupId>
+            <artifactId>xs-rongly-framework-core-base</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

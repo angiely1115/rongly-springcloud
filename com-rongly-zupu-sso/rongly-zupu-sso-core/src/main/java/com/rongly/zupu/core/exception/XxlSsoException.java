@@ -1,22 +1,21 @@
-package com.xxl.sso.core.exception;
+package com.rongly.zupu.core.exception;
+
+import com.xs.rongly.framework.stater.web.exception.BizException;
 
 /**
  * @author xuxueli 2018-04-02 21:01:41
  */
-public class XxlSsoException extends RuntimeException {
+public class XxlSsoException extends BizException {
 
     private static final long serialVersionUID = 42L;
 
-    public XxlSsoException(String msg) {
-        super(msg);
+    public XxlSsoException(String code,String msg) {
+        super(code,msg);
     }
 
-    public XxlSsoException(String msg, Throwable cause) {
-        super(msg, cause);
+    public XxlSsoException(String code,String msg, Throwable cause) {
+        super(cause,code,msg);
     }
 
-    public XxlSsoException(Throwable cause) {
-        super(cause);
-    }
 
 }

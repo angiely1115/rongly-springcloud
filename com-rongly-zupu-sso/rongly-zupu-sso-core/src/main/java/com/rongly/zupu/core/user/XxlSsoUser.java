@@ -1,4 +1,7 @@
-package com.xxl.sso.core.user;
+package com.rongly.zupu.core.user;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.Map;
@@ -8,6 +11,8 @@ import java.util.Map;
  *
  * @author xuxueli 2018-04-02 19:59:49
  */
+@Getter
+@Setter
 public class XxlSsoUser implements Serializable {
     private static final long serialVersionUID = 42L;
 
@@ -19,55 +24,5 @@ public class XxlSsoUser implements Serializable {
     private String version;
     private int expireMinite;
     private long expireFreshTime;
-
-
-    // set get
-    public String getUserid() {
-        return userid;
-    }
-
-    public void setUserid(String userid) {
-        this.userid = userid;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public Map<String, String> getPlugininfo() {
-        return plugininfo;
-    }
-
-    public void setPlugininfo(Map<String, String> plugininfo) {
-        this.plugininfo = plugininfo;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public int getExpireMinite() {
-        return expireMinite;
-    }
-
-    public void setExpireMinite(int expireMinite) {
-        this.expireMinite = expireMinite;
-    }
-
-    public long getExpireFreshTime() {
-        return expireFreshTime;
-    }
-
-    public void setExpireFreshTime(long expireFreshTime) {
-        this.expireFreshTime = expireFreshTime;
-    }
 
 }

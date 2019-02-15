@@ -1,8 +1,9 @@
-package com.xxl.sso.core.store;
+package com.rongly.zupu.core.store;
 
-import com.xxl.sso.core.conf.Conf;
-import com.xxl.sso.core.user.XxlSsoUser;
-import com.xxl.sso.core.util.JedisUtil;
+
+import com.rongly.zupu.core.conf.Conf;
+import com.rongly.zupu.core.user.XxlSsoUser;
+import com.rongly.zupu.core.util.JedisUtil;
 
 /**
  * local login store
@@ -13,9 +14,9 @@ public class SsoLoginStore {
 
     private static int redisExpireMinite = 1440;    // 1440 minite, 24 hour
     public static void setRedisExpireMinite(int redisExpireMinite) {
-        if (redisExpireMinite < 30) {
+       /* if (redisExpireMinite < 30) {
             redisExpireMinite = 30;
-        }
+        }*/
         SsoLoginStore.redisExpireMinite = redisExpireMinite;
     }
     public static int getRedisExpireMinite() {
@@ -57,7 +58,8 @@ public class SsoLoginStore {
      */
     public static void put(String storeKey, XxlSsoUser xxlUser) {
         String redisKey = redisKey(storeKey);
-        JedisUtil.setObjectValue(redisKey, xxlUser, redisExpireMinite * 60);  // minite to second
+        // minite to second
+        JedisUtil.setObjectValue(redisKey, xxlUser, redisExpireMinite * 60);
     }
 
     private static String redisKey(String sessionId){

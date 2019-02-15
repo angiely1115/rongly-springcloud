@@ -1,6 +1,7 @@
-package com.xxl.sso.core.conf;
+package com.rongly.zupu.core.conf;
 
-import com.xxl.sso.core.entity.ReturnT;
+
+import com.rongly.zupu.core.entity.ReturnT;
 
 /**
  * conf
@@ -20,11 +21,11 @@ public class Conf {
      */
     public static final String REDIRECT_URL = "redirect_url";
 
+
     /**
      * sso user, request attribute (web client)
      */
     public static final String SSO_USER = "xxl_sso_user";
-
 
     /**
      * sso server address (web + token client)
