@@ -1,12 +1,14 @@
 package com.rongly.framework.demo.security.browser;
 
 import com.xs.rongly.framework.stater.core.base.autoJsonConfig.ObjectMapperJson;
+import com.xs.rongly.framework.stater.security.spring.security.core.SecurityCoreConfig;
 import com.xs.rongly.framework.stater.security.spring.security.core.properties.SecurityProperties;
 import com.xs.rongly.framework.stater.web.exception.BizException;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -27,6 +29,7 @@ import java.io.UnsupportedEncodingException;
  */
 @Controller
 @RequestMapping("/user")
+@ConditionalOnBean(SecurityCoreConfig.class)
 @Slf4j
 public class UserController {
     @Autowired

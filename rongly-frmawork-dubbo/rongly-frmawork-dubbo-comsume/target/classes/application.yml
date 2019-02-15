@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: rongly-dubbo-comsume
+dubbo:
+  application:
+    name: rongly-dubbo-comsume
+    id: rongly-dubbo-comsume
+  registry:
+    client: curator
+    address: zookeeper://47.95.120.66:2181?backup=47.95.120.66:2182,47.95.120.66:2183
+    check: true
+  consumer:
+    check: false

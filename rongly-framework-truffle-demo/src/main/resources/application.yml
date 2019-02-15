@@ -201,3 +201,16 @@ management:
           - httpdump
           - scheduledtasks
           - rongly-scheduledtasks
+dubbo:
+  application:
+    name: rongly-framework-demo
+    id: rongly-framework-demo
+  registry:
+    client: curator
+    address: zookeeper://47.95.120.66:2181?backup=47.95.120.66:2182,47.95.120.66:2183
+  protocol:
+    name: dubbo
+    port: 20880
+  provider:
+    group: rongly-framework-demo
+    timeout: 500

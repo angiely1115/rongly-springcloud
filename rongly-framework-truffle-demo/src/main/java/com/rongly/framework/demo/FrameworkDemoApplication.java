@@ -1,8 +1,10 @@
 package com.rongly.framework.demo;
 
+import com.alibaba.dubbo.config.spring.context.annotation.EnableDubbo;
 import com.xs.rongly.framework.stater.security.autoConfig.annotation.EnableAPPSecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -26,10 +28,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 )*/
 //使用浏览器
 //@EnableBrowserSecurityConfig
-@EnableAPPSecurityConfig
+//@EnableAPPSecurityConfig
+//使用dubbo
+@EnableDubbo
 public class FrameworkDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(FrameworkDemoApplication.class,args);
+        SpringApplication springApplication = new SpringApplication(FrameworkDemoApplication.class);
+        springApplication.setWebApplicationType(WebApplicationType.NONE);
+        springApplication.run(args);
     }
 }

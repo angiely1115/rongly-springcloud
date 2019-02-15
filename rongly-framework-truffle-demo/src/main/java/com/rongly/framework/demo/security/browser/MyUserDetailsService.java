@@ -1,6 +1,7 @@
 package com.rongly.framework.demo.security.browser;
 
 import com.rongly.framework.demo.security.domain.UserInfo;
+import com.xs.rongly.framework.stater.security.spring.security.core.SecurityCoreConfig;
 import com.xs.rongly.framework.stater.web.exception.BizException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -22,6 +23,7 @@ import org.springframework.stereotype.Service;
  * modified by:
  */
 @Component("userDetailsService")
+@ConditionalOnBean(SecurityCoreConfig.class)
 public class MyUserDetailsService implements UserDetailsService {
     @Autowired
     private PasswordEncoder passwordEncoder;
