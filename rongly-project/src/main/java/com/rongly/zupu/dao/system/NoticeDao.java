@@ -3,7 +3,6 @@ package com.rongly.zupu.dao.system;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
 import com.rongly.zupu.entity.system.NoticeDO;
 import org.apache.ibatis.annotations.Mapper;
-import org.omg.CORBA.BAD_POLICY;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
