@@ -7,35 +7,39 @@
   <version>1.0-SNAPSHOT</version>
   <distributionManagement>
     <repository>
-      <id>hn-nexus-releases</id>
-      <url>http://47.95.120.66:8081/repository/rongly-snapshots/</url>
+      <id>rdc-releases</id>
+      <name>releases</name>
+      <url>https://repo.rdc.aliyun.com/repository/67158-release-WANpkc/</url>
     </repository>
     <snapshotRepository>
-      <id>hn-nexus-snapshot</id>
-      <url>http://47.95.120.66:8081/nexus/content/repositories/snapshots/</url>
+      <id>rdc-snapshots</id>
+      <name>snapshots</name>
+      <url>https://repo.rdc.aliyun.com/repository/67158-snapshot-Fe1HXB/</url>
     </snapshotRepository>
   </distributionManagement>
   <properties>
-    <nexus.url>http://47.95.120.66:8081</nexus.url>
-    <curator.version>2.11.1</curator.version>
-    <commons.lang.version>3.6</commons.lang.version>
-    <vip.vjtools>1.0.8</vip.vjtools>
-    <mybatis.pagehelper.version>5.1.2</mybatis.pagehelper.version>
-    <mybatis-plus.version>2.3</mybatis-plus.version>
-    <commons-beanutils.version>1.9.3</commons-beanutils.version>
-    <shiro.version>1.4.0</shiro.version>
-    <spring-cloud.version>Finchley.SR1</spring-cloud.version>
-    <commons-io.version>2.6</commons-io.version>
+    <dubbo.version>2.6.5</dubbo.version>
     <spring.boot.version>2.1.0.RELEASE</spring.boot.version>
     <reflections.version>0.9.11</reflections.version>
+    <commons-beanutils.version>1.9.3</commons-beanutils.version>
+    <spring-cloud.version>Finchley.SR1</spring-cloud.version>
+    <main.basedir>D:\home\rongly\resource\myStar\rongly-framework\rongly-framework\xs-rongly-framework-build\xs-rongly-framework-dependencies</main.basedir>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <revision>1.1.0-SNAPSHOT</revision>
+    <commons-io.version>2.6</commons-io.version>
+    <vip.vjtools>1.0.8</vip.vjtools>
+    <mybatis.pagehelper.version>5.1.2</mybatis.pagehelper.version>
     <java.version>1.8</java.version>
-    <jsoup.version>1.11.2</jsoup.version>
     <shardingsphere.release.version>3.0.0</shardingsphere.release.version>
+    <commons.lang.version>3.6</commons.lang.version>
+    <jsoup.version>1.11.2</jsoup.version>
+    <shedlock.version>2.2.0</shedlock.version>
+    <mybatis-plus.version>2.3</mybatis-plus.version>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <revision>1.1.0-SNAPSHOT</revision>
+    <shiro.version>1.4.0</shiro.version>
+    <nexus.url>http://47.95.120.66:8081</nexus.url>
     <log4jdbc.version>1.16</log4jdbc.version>
-    <main.basedir>D:\resource\workspace\framework\xs-rongly-framework-build\xs-rongly-framework-dependencies</main.basedir>
+    <curator.version>2.11.1</curator.version>
   </properties>
   <dependencies>
     <dependency>
@@ -126,17 +130,15 @@
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-      <id>hn-nexus</id>
-      <name>huinong nexus repository</name>
-      <url>http://47.95.120.66:8081/repository/maven-releases/</url>
+      <id>rdc-releases</id>
+      <url>https://repo.rdc.aliyun.com/repository/67158-release-WANpkc/</url>
     </repository>
     <repository>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
-      <id>spring-snapshots</id>
-      <name>Spring Snapshots</name>
-      <url>https://repo.spring.io/snapshot</url>
+      <id>rdc-snapshots</id>
+      <url>https://repo.rdc.aliyun.com/repository/67158-snapshot-Fe1HXB/</url>
     </repository>
     <repository>
       <snapshots>
