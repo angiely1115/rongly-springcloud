@@ -1,11 +1,9 @@
 package com.rongly.framework.demo.kafkaComsume.interceptor;
 
-import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.ProducerInterceptor;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
-import org.springframework.stereotype.Component;
 
 import java.util.Map;
 

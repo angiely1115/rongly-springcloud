@@ -7,7 +7,7 @@
     <parent>
     <groupId>xs.rongly.framework.truffle</groupId>
     <artifactId>xs.rongly.framework.dependencies</artifactId>
-    <version>1.1.0-SNAPSHOT</version>
+    <version>1.1.0</version>
 </parent>
     <groupId>com.rongly.framework.truffle.demo</groupId>
     <artifactId>rongly-framework-truffle-demo</artifactId>
@@ -145,6 +145,7 @@
             </plugin>
         </plugins>
     </build>
+    <!--
     <repositories>
         <repository>
             <id>hn-nexus</id>
@@ -194,19 +195,18 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
+    -->
+    <!--仓库发布地址-->
     <distributionManagement>
         <repository>
-            <id>hn-nexus-releases</id>
-            <url>
-                http://47.95.120.66:8081/repository/rongly-snapshots/
-            </url>
+            <id>rdc-releases</id>
+            <name>releases</name>
+            <url>https://repo.rdc.aliyun.com/repository/67158-release-WANpkc/</url>
         </repository>
         <snapshotRepository>
-            <id>hn-nexus-snapshot</id>
-            <url>
-                http://47.95.120.66:8081/nexus/content/repositories/snapshots/
-            </url>
+            <id>rdc-snapshots</id>
+            <name>snapshots</name>
+            <url>https://repo.rdc.aliyun.com/repository/67158-snapshot-Fe1HXB/</url>
         </snapshotRepository>
     </distributionManagement>
 </project>

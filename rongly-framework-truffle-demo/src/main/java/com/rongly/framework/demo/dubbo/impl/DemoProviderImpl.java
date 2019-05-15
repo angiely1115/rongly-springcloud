@@ -1,8 +1,6 @@
 package com.rongly.framework.demo.dubbo.impl;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.alibaba.dubbo.config.spring.context.annotation.EnableDubboConfig;
-import com.alibaba.dubbo.validation.MethodValidated;
 import com.rongly.dubbo.demo.api.DubboSampleDemo;
 import com.rongly.dubbo.demo.domain.DemoDubboDomain;
 import lombok.extern.slf4j.Slf4j;
