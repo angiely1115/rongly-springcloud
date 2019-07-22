@@ -6,7 +6,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.List;
 @Slf4j
 public class SerializeUtil {
     public static byte[] serialize(Object object) {

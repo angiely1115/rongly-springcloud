@@ -84,7 +84,7 @@
 		</foreach>
 	</delete>
 	
-	<select id="listParentDept" resultType="long">
+	<select id="listParentDept" resultType="Integer">
 		select DISTINCT parent_id from sys_dept
 	</select>
 

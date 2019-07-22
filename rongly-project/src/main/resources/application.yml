@@ -7,63 +7,36 @@ spring:
     prefix: classpath:/templates/
     cache: false
   redis:
-    cluster:
-      nodes:
-      - 10.10.3.71:7000
-      - 10.10.3.71:7001
-      - 10.10.3.71:7002
     lettuce:
       pool:
         max-active: 20
-        max-idle: 5
+    cluster:
+      nodes:
+        - 47.95.120.66:7000
+        - 47.95.120.66:7001
+        - 47.95.120.66:7002
   cache:
     redis:
       time-to-live: 10000s #默认过期时间 不设置默认永不过期
       use-key-prefix: false # 不使用cache-name:: 默认使用
-  data:
-    mongodb:
-      database: testdb
-      uri: mongodb://47.95.120.66:27011/testdb
-  kafka:
-    producer:
-      bootstrap-servers: 47.95.120.66:9092,47.95.120.66:9093,47.95.120.66:9094
-      # 指定消息key和消息体的编解码方式
-      key-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
-      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
-      properties:
-        interceptor.classes:
-          com.rongly.framework.demo.kafkaComsume.interceptor.MyKafkaInterceptor
-    consumer:
-      bootstrap-servers: 47.95.120.66:9092,47.95.120.66:9093,47.95.120.66:9094
-      group-id: ${spring.application.name}
-      enable-auto-commit: false
-      auto-offset-reset: latest
-      key-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
-    listener:
-      ack-mode: manual_immediate
 rongly:
-  zookeeper:
-    enabled: true #是否使用zookeeper
-    connect-string: 47.95.120.66:2181,47.95.120.66:2182,47.95.120.66:2183
-    connection-timeout-ms: 10000
   jdbc:
     ronglyJdbc:
       ds-master: #不支持多个写入
-        jdbcUrl: jdbc:mysql://10.10.8.205:3306/mytest?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&autoReconnect=true&failOverReadOnly=false
-        userName: caocao
-        password: caocao123
+        jdbcUrl: jdbc:mysql://47.95.120.66:9999/zupu?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+        userName: root
+        password: rongly1115
         driverClassName: com.mysql.cj.jdbc.Driver
         jdbcPoolConfig:
-          maximumPoolSize: 30
+          maximumPoolSize: 8
           connectionInitSql: 'set names utf8mb4;'
       ds-slave-1:
-        jdbcUrl: jdbc:mysql://10.10.8.205:3306/mytest?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&autoReconnect=true&failOverReadOnly=false
-        userName: caocao
-        password: caocao123
+        jdbcUrl: jdbc:mysql://47.95.120.66:9999/zupu?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&autoReconnect=true&failOverReadOnly=false&allowMultiQueries=true
+        userName: root
+        password: rongly1115
         driverClassName: com.mysql.cj.jdbc.Driver
         jdbcPoolConfig:
-          maximumPoolSize: 30
+          maximumPoolSize: 10
           connectionInitSql: 'set names utf8mb4;'
 #读写分离配置
   sharding:
@@ -74,7 +47,6 @@ rongly:
          name: dataSource
          master-data-source-name: ds-master
          slave-data-source-names: ds-slave-1
-
   shiro:
     sessionTimeout: 180000
     anonUrl:
@@ -93,11 +65,6 @@ rongly:
       - /login
 
 
-#mybatis.config-location: classpath:mapper/mybatis-config.xml
-#mybatis.mapper-locations: classpath:mapper/module/*.xml
-#mybatis.typeAliasesPackage: com.rongly.framework.demo.entity
-#mybatis:
-#  type-handlers-package: com.rongly.framework.demo.dao
 mybatis-plus:
   # 如果是放在src/main/java目录下 classpath:/com/yourpackage/*/mapper/*Mapper.xml
   # 如果是放在resource目录 classpath:/mapper/*Mapper.xml
@@ -131,7 +98,7 @@ mybatis-plus:
     cache-enabled: false
     #配置JdbcTypeForNull, oracle数据库必须配置
     #jdbc-type-for-null: 'null'
-  type-handlers-package: com.rongly.framework.demo.dao
+  type-handlers-package: com.rongly.zupu.dao.system
 logging:
   level:
     jdbc:

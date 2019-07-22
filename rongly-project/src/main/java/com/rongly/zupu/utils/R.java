@@ -2,7 +2,6 @@ package com.rongly.zupu.utils;
 
 import com.rongly.zupu.common.config.Constant;
 import com.vip.vjtools.vjkit.mapper.JsonMapper;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;

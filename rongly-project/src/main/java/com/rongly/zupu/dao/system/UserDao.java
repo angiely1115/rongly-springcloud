@@ -38,7 +38,7 @@ public interface UserDao {
 	
 	int batchRemove(Integer[] userIds);
 	
-	Integer[] listAllDept();
+	List<Integer> listAllDept();
 
 	/**
 	 * @Description 通过用户名删除

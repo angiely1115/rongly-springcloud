@@ -27,5 +27,5 @@ public interface DeptDao {
 	
 	int batchRemove(Integer[] deptIds);
 	
-	Integer[] listParentDept();
+	List<Integer> listParentDept();
 }

@@ -35,6 +35,7 @@
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.2.Final" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-validation:2.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-el:9.0.12" level="project" />
@@ -59,7 +60,6 @@
     <orderEntry type="library" name="Maven: io.springfox:springfox-spring-web:2.9.2" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:20.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.4.0" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.mapstruct:mapstruct:1.2.0.Final" level="project" />
@@ -106,18 +106,11 @@
     <orderEntry type="library" name="Maven: org.attoparser:attoparser:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.unbescape:unbescape:1.1.6.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.thymeleaf.extras:thymeleaf-extras-java8time:3.0.1.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: xs.rongly.framework.truffle:xs-rongly-framework-starter-zookeeper:1.1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.curator:curator-framework:2.11.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.curator:curator-client:2.11.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.zookeeper:zookeeper:3.4.9" level="project" />
-    <orderEntry type="library" name="Maven: log4j:log4j:1.2.16" level="project" />
-    <orderEntry type="library" name="Maven: jline:jline:0.9.94" level="project" />
-    <orderEntry type="library" name="Maven: io.netty:netty:3.10.5.Final" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.curator:curator-recipes:2.11.1" level="project" />
     <orderEntry type="library" name="Maven: xs.rongly.framework.truffle:xs-rongly-framework-starter-redis:1.1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.1.0.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:2.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-keyvalue:2.1.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-oxm:5.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: io.lettuce:lettuce-core:5.1.2.RELEASE" level="project" />
@@ -128,13 +121,6 @@
     <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.29.Final" level="project" />
     <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.29.Final" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-pool2:2.6.0" level="project" />
-    <orderEntry type="library" name="Maven: xs.rongly.framework.truffle:xs-rongly-framework-stater-kafka:1.1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.kafka:spring-kafka:2.2.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:5.1.2.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.retry:spring-retry:1.2.2.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:2.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.lz4:lz4-java:1.4.1" level="project" />
-    <orderEntry type="library" name="Maven: org.xerial.snappy:snappy-java:1.1.7.1" level="project" />
     <orderEntry type="library" name="Maven: xs.rongly.framework.truffle:xs-rongly-framework-stater-jdbc:1.1.0-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: io.shardingsphere:sharding-jdbc-core:3.0.0" level="project" />
     <orderEntry type="library" name="Maven: io.shardingsphere:sharding-core:3.0.0" level="project" />
@@ -154,33 +140,7 @@
     <orderEntry type="library" name="Maven: com.baomidou:mybatis-plus-generate:2.3" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: mysql:mysql-connector-java:8.0.13" level="project" />
     <orderEntry type="library" name="Maven: org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16" level="project" />
-    <orderEntry type="library" name="Maven: xs.rongly.framework.truffle:xs-rongly-framework-stater-mongodb:1.1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-mongodb:2.1.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver:3.8.2" level="project" />
-    <orderEntry type="library" name="Maven: org.mongodb:bson:3.8.2" level="project" />
-    <orderEntry type="library" name="Maven: org.mongodb:mongodb-driver-core:3.8.2" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb:2.1.2.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.1.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: xs.rongly.framework.truffle:xs.rongly.framework.stater.security:1.1.0-SNAPSHOT" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-security:2.1.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-config:5.1.1.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-core:5.1.1.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-web:5.1.1.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:2.0.0.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security.oauth:spring-security-oauth2:2.2.1.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-core-asl:1.9.13" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.security:spring-security-jwt:1.0.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.56" level="project" />
-    <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.56" level="project" />
-    <orderEntry type="library" name="Maven: io.jsonwebtoken:jjwt:0.9.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.social:spring-social-config:1.1.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.social:spring-social-core:1.1.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.social:spring-social-web:1.1.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.social:spring-social-security:1.1.4.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.session:spring-session-data-redis:2.1.1.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.session:spring-session-core:2.1.1.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-lang:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-cache:1.4.0" level="project" />
@@ -193,7 +153,10 @@
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-spring:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-web:1.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-ehcache:1.4.0" level="project" />
-    <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.6.11" level="project" />
+    <orderEntry type="library" name="Maven: io.jsonwebtoken:jjwt:0.9.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: net.sf.ehcache.internal:ehcache-core:2.10.5" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Maven: org.terracotta.internal:statistics:1.0.2" level="project" />
     <orderEntry type="library" name="Maven: com.github.theborakompanioni:thymeleaf-extras-shiro:2.0.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.1.0.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:2.1.0.RELEASE" level="project" />

@@ -12,8 +12,6 @@ import com.rongly.zupu.service.system.UserService;
 import com.rongly.zupu.utils.BuildTree;
 import com.rongly.zupu.utils.Md5Util;
 import com.rongly.zupu.utils.ParamUtil;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -57,16 +55,11 @@ public class UserServiceImpl implements UserService {
 		if(ParamUtil.isEmpty(user.getUserType())){
 			user.setUserType(UserType.user.id());
 		}
-	/*	int salt = ParamUtil.generateCode6();*/
 		String password = Md5Util.MD5(user.getUsername() + user.getPassword());
 		user.setPassword(password);
 		int count = userMapper.save(user);
-		if(count > 0 && (UserType.agent.id() == user.getUserType() || UserType.subAgent.id() == user.getUserType())){
-			//RedisUtil.setAgentBal(UserService.createAgentBalFromUser(user));
-		}
 		Integer userId = user.getUserId();
 		List<Integer> roles = user.getRoleIds();
-//		userRoleMapper.removeByUserId(userId);
 		List<UserRoleDO> list = new ArrayList<>();
 		for (Integer roleId : roles) {
 			UserRoleDO ur = new UserRoleDO();
@@ -128,14 +121,12 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int resetPwd(UserDO user) {
-		int r = userMapper.updatePassword(user);
-		return r;
+		return userMapper.updatePassword(user);
 	}
 
 	@Override
 	public int resetFundPwd(UserDO user) {
-		int r = userMapper.updateFundPassword(user);
-		return r;
+		return userMapper.updateFundPassword(user);
 	}
 
 	@Transactional(rollbackFor = Exception.class)
@@ -152,14 +143,13 @@ public class UserServiceImpl implements UserService {
 	public Tree<DeptDO> getTree() {
 		List<Tree<DeptDO>> trees = new ArrayList<Tree<DeptDO>>();
 		List<DeptDO> depts = deptMapper.list(new HashMap<String, Object>(16));
-		Integer[] pDepts = deptMapper.listParentDept();
-		Integer[] uDepts = userMapper.listAllDept();
-		Integer[] allDepts = (Integer[]) ArrayUtils.addAll(pDepts, uDepts);
+		List<Integer> pDepts = deptMapper.listParentDept();
+		List<Integer> uDepts = userMapper.listAllDept();
 		for (DeptDO dept : depts) {
-			if (!ArrayUtils.contains(allDepts, dept.getDeptId())) {
+			if (!pDepts.contains(dept.getDeptId())&&uDepts.contains(dept.getDeptId())) {
 				continue;
 			}
-			Tree<DeptDO> tree = new Tree<DeptDO>();
+			Tree<DeptDO> tree = new Tree<>();
 			tree.setId(dept.getDeptId().toString());
 			tree.setParentId(dept.getParentId().toString());
 			tree.setText(dept.getName());
@@ -171,7 +161,7 @@ public class UserServiceImpl implements UserService {
 		}
 		List<UserDO> users = userMapper.list(new HashMap<String, Object>(16));
 		for (UserDO user : users) {
-			Tree<DeptDO> tree = new Tree<DeptDO>();
+			Tree<DeptDO> tree = new Tree<>();
 			tree.setId(user.getUserId().toString());
 			tree.setParentId(user.getDeptId().toString());
 			tree.setText(user.getName());
@@ -182,8 +172,7 @@ public class UserServiceImpl implements UserService {
 			trees.add(tree);
 		}
 		// 默认顶级菜单为０，根据数据库实际情况调整
-		Tree<DeptDO> t = BuildTree.build(trees);
-		return t;
+		return BuildTree.build(trees);
 	}
 
 	/* (非 Javadoc)
